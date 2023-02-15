@@ -11,6 +11,10 @@ app.get("/resume", function(req, res){
 	// res.send("I am Sai Teja");
 	res.sendFile(__dirname+ "/resume.html");
 });
+app.get("/card", function(req, res){
+	// res.send("I am Sai Teja");
+	res.sendFile(__dirname+ "/card.html");
+});
 app.listen(port, function(){
 	console.log("Server running on http://localhost:"+port);
 	console.log(`Server running on http://localhost:${port}`);
