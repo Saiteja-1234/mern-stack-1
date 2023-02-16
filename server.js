@@ -8,7 +8,7 @@ const options = {
 	extensions:['htm','html','css','js','ico','jpg','jpeg','png','svg','pdf'],
 	index:['index.html'],
 }
-app.use(express.static("public",options));
+app.use(express.static(__dirname));
 app.get("/", function(req, res){
 	res.sendFile(__dirname+"/index.html");
 });
