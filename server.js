@@ -28,32 +28,69 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{},function (err){
 	else{
 		console.log("DB Connected");
 		//TODO: Don't create a user if atleast 1 user exist in the table
-		userLib.createFirstUser(function (err,res){
-			if(err){
-				// console.error(err);
-				userLib.getAllUsers(function (err,res){
-					if(res[0] != null){
-						console.log("already exits " + res[0].userName);
-					}
-				});
-			}
-			else{
-				console.log(res);
-			}
+		// userLib.createFirstUser(function (err,res){
+		// 	if(err){
+		// 		// console.error(err);
+		// 		userLib.getAllUsers(function (err,res){
+		// 			if(res[0] != null){
+		// 				console.log("already exits " + res[0].userName);
+		// 			}
+		// 		});
+		// 	}
+		// 	else{
+		// 		console.log(res);
+		// 	}
+		// });
+		// userLib.createSecondUser(function (err,res){
+		// 	if(err){
+		// 		// console.error(err);
+		// 		userLib.getAllUsers(function (err,res){
+		// 			if(res[1] != null){
+		// 				console.log("already exits " + res[1].userName);
+		// 			}
+		// 		});
+		// 	}
+		// 	else{
+		// 		console.log(res);
+		// 	}
+		// });
+
+		// userLib.updateUser({
+		// 		userName: "Saiteja"
+		// 	}, {
+		// 		yearOfGraduation: 2030 
+		// 	}, 
+		// function(err,res){
+		// 	if(err){
+		// 		console.error(err);
+		// 	}
+		// 	else{
+		// 		console.log(res);
+		// 	}
+		// });
+		// userLib.deleteUser("Deepak",function(err,res){
+		// 	if(err){
+		// 		console.error(err);
+		// 	}
+		// 	else{
+		// 		console.log(res);
+		// 	}
+		// });
+		userLib.getAllUsers((err, result) => {
+			console.log(err ? err: result);
 		});
-		userLib.createSecondUser(function (err,res){
-			if(err){
-				// console.error(err);
-				userLib.getAllUsers(function (err,res){
-					if(res[1] != null){
-						console.log("already exits " + res[1].userName);
-					}
-				});
-			}
-			else{
-				console.log(res);
-			}
-		});
+
+
+		// userLib.getUserByFilter({userName:"Saiteja"},function(err,res){
+		// 	if(err){
+		// 		console.log(err);
+		// 	}
+		// 	else{
+		// 		console.log(res);
+		// 	}
+		// });
+
+		
 		app.listen(port, function(){
 			console.log("Server running on http://localhost:"+port);
 			console.log(`Server running on http://localhost:${port}`);
