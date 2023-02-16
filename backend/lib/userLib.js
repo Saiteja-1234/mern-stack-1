@@ -23,3 +23,17 @@ module.exports.createFirstUser = async function(callback){
         callback(err,null)
     }
 }
+module.exports.createSecondUser = async function(callback){
+    try{
+        var user = {
+            userName:"Deepak",
+            yearOfGraduation:2024
+        }
+        var newUser = new userModel(user);
+        var result = await newUser.save();
+        callback(null,result);
+    }
+    catch(err){
+        callback(err,null)
+    }
+}
