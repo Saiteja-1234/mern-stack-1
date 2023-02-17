@@ -75,20 +75,32 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{},function (err){
 		// 	else{
 		// 		console.log(res);
 		// 	}
-		// });
-		userLib.getAllUsers((err, result) => {
-			console.log(err ? err: result);
-		});
-
-
-		// userLib.getUserByFilter({userName:"Saiteja"},function(err,res){
+		// user={
+		// 	userName:"deva",
+		// 	yearOfGraduation : 2030
+		// }
+		// userLib.createUser(user,(err,res)=>{
 		// 	if(err){
-		// 		console.log(err);
+		// 		console.error(err);
 		// 	}
 		// 	else{
 		// 		console.log(res);
 		// 	}
 		// });
+		// });
+		// userLib.getAllUsers((err, result) => {
+		// 	console.log(err ? err: result);
+		// });
+
+
+		userLib.getUserByFilter({userName:"deva"},function(err,res){
+			if(err){
+				console.log(err);
+			}
+			else{
+				console.log(res);
+			}
+		});
 
 		
 		app.listen(port, function(){

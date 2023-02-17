@@ -15,7 +15,9 @@
             margin-top: 50px;
             /* margin: auto; */
         }
-        
+        .b{
+            margin-left: 600px;
+        }
         .card:hover {
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         }
@@ -56,15 +58,50 @@
     <div class="box">
         <div class="card">
             
-                <img src="public/vaibhav.jpg" alt="vaibhav" height="400px" width="300px">
+                <img id="userImage" src="public/vaibhav.jpg" alt="vaibhav" height="400px" width="300px">
 
             
             <div class="container">
-                <h4><b>vaibhav</b></h4>
-                <p>Engineer </p>
+                <h4 id="userTitle"><b>vaibhav</b></h4>
+                <p id="userDesignation">Engineer </p>
             </div>
         </div>
     </div>
+    <br>
+    <div class="b">
+        <button onclick="toggleUser()">Toggle</button>
+    </div>
+    
+    <script>
+        const userOne = {
+            name : "Vaibhav",
+            designation : "Web Developer",
+            image : "public/vaibhav.jpg"
+        }
+        const userTwo = {
+            name : "Sai Teja",
+            designation : "Full Stack expert",
+            image : "https://th.bing.com/th/id/OIP.PY5xuPmhxw5NSUXhQl4oAQHaHv?w=190&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        }
+        let currentIsVaibhav = true;
+        let displayUser =userOne;
+        let userTitle=document.getElementById("userTitle");
+        let userImage=document.getElementById("userImage");
+        let userDesignation=document.getElementById("userDesignation");
+        let toggleUser = function(){
+            if(currentIsVaibhav){
+                displayUser=userTwo;
+                currentIsVaibhav=false;
+            }
+            else{
+                displayUser= userOne;
+                currentIsVaibhav = true;
+            }
+            document.getElementById("userTitle").innerHTML = displayUser.name;
+            document.getElementById("userDesignation").innerHTML = displayUser.designation;
+            document.getElementById("userImage").src = displayUser.image;
+        }
+    </script>
 </body>
 
 

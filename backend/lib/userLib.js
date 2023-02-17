@@ -10,7 +10,7 @@ module.exports.getAllUsers = async function(callback){
     }
 }
 
-module.exports.createUser = async function (user,callback){
+module.exports.createUser = async function (user, callback){
     try{
         var newUser = new userModel(user);
         var result = await newUser.save();
