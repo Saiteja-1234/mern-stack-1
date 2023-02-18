@@ -1,5 +1,6 @@
 require("dotenv").config();
 const userLib=require("./backend/lib/userLib");
+const todoLib=require("./backend/lib/todoLib");
 const mongoose = require("mongoose");
 const express = require('express');
 const app = express();
@@ -20,6 +21,15 @@ app.get("/resume", function(req, res){
 app.get("/card", function(req, res){
 	res.sendFile(__dirname+"/card.html");
 });
+
+
+//API FOR TODO
+app.get('/api/createTodo', (req, res)=>{
+	console.log(req.body);
+	res.send(req.body);
+});
+
+
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_CONNECTION_STRING,{},function (err){
 	if(err){
@@ -93,14 +103,16 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{},function (err){
 		// });
 
 
-		userLib.getUserByFilter({userName:"deva"},function(err,res){
-			if(err){
-				console.log(err);
-			}
-			else{
-				console.log(res);
-			}
-		});
+		// userLib.getUserByFilter({userName:"deva"},function(err,res){
+		// 	if(err){
+		// 		console.log(err);
+		// 	}
+		// 	else{
+		// 		console.log(res);
+		// 	}
+		// });
+
+		
 
 		
 		app.listen(port, function(){
