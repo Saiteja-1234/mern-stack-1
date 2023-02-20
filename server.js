@@ -21,6 +21,12 @@ app.get("/resume", function(req, res){
 app.get("/card", function(req, res){
 	res.sendFile(__dirname+"/card.html");
 });
+app.get("/weather", function(req, res){
+	res.sendFile(__dirname+"/weather.html");
+});
+app.get("/card", function(req, res){
+	res.sendFile(__dirname+"/card.html");
+});
 
 
 //API FOR TODO
